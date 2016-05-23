@@ -38,6 +38,7 @@
             </thead>
          </table>
       </div>
+    </div>
       <script src="//d3js.org/d3.v3.min.js"></script>
       <script>
          var margin = {top: 100, right: 40, bottom: 50, left: 100},
@@ -114,13 +115,14 @@
                }
          } );
          });
-         <!-- Defining x and y axis domain-->
+
          function drawGraph(avgData){
            var svg = d3.select("body").append("svg")
                .attr("width", width + margin.left + margin.right)
                .attr("height", height + margin.top + margin.bottom)
              .append("g")
                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                <!-- Defining x and y axis domain-->
            x.domain(avgData.map(function(d) { return d.key; }));
            y.domain([d3.min(avgData, function(d) { return d.values; })-1, d3.max(avgData, function(d) { return d.values; })]);
          <!-- x axis values and label-->
